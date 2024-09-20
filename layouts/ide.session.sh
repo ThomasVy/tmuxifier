@@ -1,6 +1,6 @@
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
-session_root "~"
+session_root "."
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
@@ -16,9 +16,10 @@ if initialize_session "ide"; then
 	#select_window 1
 
 	new_window "neovim"
-	run_cmd "nvim"
+	run_cmd "nvim ."
 	new_window "command"
 	split_h 50
+	select_pane 0
 	select_window 0
 fi
 
